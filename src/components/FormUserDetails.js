@@ -6,7 +6,7 @@ import RaisedButton from "material-ui/RaisedButton";
 
 export class FormUserDetails extends Component {
   continue = e => {
-    e.preventDefualt();
+    e.preventDefault();
     this.props.nextStep();
   };
   render() {
@@ -25,7 +25,7 @@ export class FormUserDetails extends Component {
           <TextField
             hintText="Enter Your Last Name"
             floatingLableText="Last Name"
-            onChange={handleChange("lasttName")}
+            onChange={handleChange("lastName")}
             defaultValue={values.lastName}
           />
           <br />
@@ -37,9 +37,9 @@ export class FormUserDetails extends Component {
           />
           <br />
           <RaisedButton
-            lable="Continue"
+            label="Continue"
             primary={true}
-            styel={styles.button}
+            style={styles.button}
             onClick={this.continue}
           />
         </React.Fragment>
