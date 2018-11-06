@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FormUserDetails from "./FormUserDetails";
 import FormPersonalDetails from "./FormPersonalDetails";
 import Confirm from "./Confirm";
+import Success from "./Success";
 
 export class UserForm extends Component {
   state = {
@@ -40,6 +41,7 @@ export class UserForm extends Component {
     const { firstName, lastName, email, occupation, city, bio } = this.state;
     const values = { firstName, lastName, email, occupation, city, bio };
 
+    // eslint-disable-next-line default-case
     switch (step) {
       case 1:
         return (
@@ -67,7 +69,7 @@ export class UserForm extends Component {
           />
         );
       case 4:
-        return <h1>Success</h1>;
+        return <Success />;
     }
   }
 }
