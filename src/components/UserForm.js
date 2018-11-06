@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FormUserDetails from "./FormUserDetails";
 
 export class UserForm extends Component {
   state = {
@@ -50,6 +51,8 @@ export class UserForm extends Component {
         return <h1>FormPersonalDetails</h1>;
       case 3:
         return <h1>Confirm</h1>;
+      case 4:
+        return <h1 />;
     }
   }
 }
