@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
-import TextField from "material-ui/TextField";
+import Card from "material-ui/Card";
 import RaisedButton from "material-ui/RaisedButton";
+import Calendar from "react-calendar";
 
 export class FormPersonalDetails extends Component {
+  state = {
+    date: new Date()
+  };
+
+  onCahnge = date => this.setState({ date });
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -19,28 +26,13 @@ export class FormPersonalDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Enter Personal Details" />
-          <TextField
-            hintText="Enter Your Occupation "
-            floatingLableText="Occupation"
-            onChange={handleChange("occupation")}
-            defaultValue={values.occupation}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your City"
-            floatingLableText="City"
-            onChange={handleChange("city")}
-            defaultValue={values.city}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your Bio"
-            floatingLableText="Bio"
-            onChange={handleChange("bio")}
-            defaultValue={values.bio}
-          />
-          <br />
+          <AppBar title="Pick a Date" />
+
+          <div className="wraper">
+            <Card zDepth={3} style={styles.cardStyle} className="card">
+              <Calendar onChange={this.onChange} value={this.state.date} />
+            </Card>
+          </div>
           <RaisedButton
             label="Continue"
             primary={true}
@@ -61,6 +53,9 @@ export class FormPersonalDetails extends Component {
 const styles = {
   button: {
     margin: 15
+  },
+  cardStyle: {
+    marginTop: 20
   }
 };
 export default FormPersonalDetails;
